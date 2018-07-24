@@ -1,0 +1,14 @@
+1. ถ้า template engine ที่ใช้ ใช้ {{}} ซ้ำกับของ Vue เราจะแก้ยังไง ?
+* ใส่ delimiters: ['${', '}'] ตอน new Vue
+* ใส่ Vue.options.delimiters = ['${', '}']
+* ไปแก้ template engine ให้ใช้ค่าอื่นแทน
+
+2. ถ้าเข้าเว็บแล้วเห็น {{data}} ขึ้นมาก่อน vue ทำงาน จะซ่อนโดนวิธีไหน
+- ใส่ ng-clock
+- ใส่ v-clock และ [v-clock] { display: none; }
+- ใส่ v-clock และ [v-clock] { display: inline; }
+
+3. ใช้อะไรทำปุ่ม sidebar ถ้าไม่ใช้ JavaScript
+- <div>
+* <input type=checkbox>
+- <button>

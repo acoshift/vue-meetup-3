@@ -1,0 +1,16 @@
+{{define "root"}}
+<!doctype html>
+<div id="app">
+	<Hello name="{{.Username}}"></Hello>
+	<hr>
+	<List :list="{{.List | json}}"></List>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+<script src="/script.js"></script>
+<script>
+	new Vue({
+		el: '#app'
+	})
+</script>
+{{end}}
