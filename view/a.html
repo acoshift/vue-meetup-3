@@ -1,0 +1,23 @@
+{{define "root"}}
+<!doctype html>
+<style>
+	[v-cloak] {
+		display: none;
+	}
+</style>
+<div id="app">
+    <input name="username" v-model="username">
+    <p v-cloak>Hello ${username}</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        delimiters: ['${', '}'],
+        data: {
+            username: {{.Username}}
+        }
+    })
+</script>
+{{end}}

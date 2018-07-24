@@ -9,6 +9,7 @@ import (
 
 func main() {
 	http.Handle("/", hime.H(index))
+	http.Handle("/a", hime.H(index2))
 	http.Handle("/script.js", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, "script.js")
 	}))
@@ -23,7 +24,8 @@ func main() {
 	app.Template().
 		Dir("view").
 		Root("root").
-		Parse("index", "index.html")
+		Parse("index", "index.html").
+		Parse("a", "a.html")
 
 	app.Handler(http.DefaultServeMux).
 		Address(":8080").
@@ -38,5 +40,11 @@ func index(ctx *hime.Context) hime.Result {
 			"Vue",
 			"PostgreSQL",
 		},
+	})
+}
+
+func index2(ctx *hime.Context) hime.Result {
+	return ctx.View("a", map[string]interface{}{
+		"Username": "acoshift",
 	})
 }

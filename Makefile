@@ -9,3 +9,6 @@ component:
 
 dev-component:
 	$(watchify) -p browserify-hmr -t vueify component -o script.js
+
+dev:
+	goreload
